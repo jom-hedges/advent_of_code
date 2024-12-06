@@ -1,18 +1,21 @@
 defmodule Day01 do
-  @moduledoc """
-  Documentation for `Day01`.
-  """
+  def part1(input) do
+    all = parse(input)
+    {first, second} = Enum.unzip(all)
+    Enum.zip([Enum.sort(first), Enum.sort(second)])
+    |> Enum.map(fn {a, b} -> 
+      abs(a - b)
+    end)
+    |> Enum.sum
+  end
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Day01.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  defp parse(input) do
+    input
+    |> Enum.map(fn line -> 
+      {first, line} = Integer.parse(line)
+      line = String.trim(line)
+      {second, ""} = Integer.parse(line)
+      {first, second}
+    end)
   end
 end
