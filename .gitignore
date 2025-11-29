@@ -25,5 +25,4 @@ advent_of_code-*.tar
 # Temporary files, for example, from tests.
 /tmp/
 
-# Ignore input files
-*.txt
+
