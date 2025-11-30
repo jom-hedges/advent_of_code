@@ -1,5 +1,6 @@
 defmodule Y2015.Day02 do
-  @doc"""
+  use Advent.Day, no: 2
+  """
   Day02, Part 1 of AOC 2015. Computes the amount of wrapping paper needed.
 
   Input is a string of string of box dimensions.
@@ -30,7 +31,7 @@ defmodule Y2015.Day02 do
     %{
       (w * l) => 2 * w + 2 * l,
       (l * h) => 2 * l + 2 * h,
-      (h *  w) => 2 * h + 2 * w 
+      (h * w) => 2 * h + 2 * w 
     }
     |> Enum.min_by(fn {area, _} -> area end)
     |> elem(1)

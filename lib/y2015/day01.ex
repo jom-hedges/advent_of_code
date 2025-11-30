@@ -1,4 +1,6 @@
 defmodule Y2015.Day01 do
+  use Advent.Day, no: 1
+
   def part1(string, floor \\ 0)
   def part1("", floor), do: floor
   def part1(<<"(", rest::binary>>, floor), do: part1(rest, floor + 1)
